@@ -7,6 +7,16 @@ class DetailSerializer(serializers.ModelSerializer):
         model=Detail
         fields="__all__"
 
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Users
+        fields = ['email', 'password']
+        extra_kwargs = {'password': {'write_only': True}}
+
+    def create(self, validated_data):
+        user = Users.objects.create_user(**validated_data)
+        return user
+
 class UsersSerializer(serializers.ModelSerializer):
     class Meta:
         model = Users
@@ -34,6 +44,10 @@ class OrderDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = OrderDetail
         fields = "__all__"
+
+
+
+
 
     #Вместо изображения получаем url изображения
     # def get_photo_url(self, obj):

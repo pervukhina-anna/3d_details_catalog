@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'users_lists.apps.UsersListsConfig',
+    'rest_framework.authtoken',
     'rest_framework'
 ]
 
@@ -113,6 +114,12 @@ USE_I18N = True
 
 USE_TZ = True
 
+AUTH_USER_MODEL = 'authentication.User'
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+}
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/

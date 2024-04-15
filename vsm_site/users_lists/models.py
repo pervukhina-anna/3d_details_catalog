@@ -1,11 +1,12 @@
 from django.core.validators import MinValueValidator
+from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 # Create your models here.
 
 
 #модель пользователей
-class Users(models.Model):
+class Users(AbstractUser):
     ROLE = (
         ('user', 'Аутентифицированный пользователь'),
         ('operator', 'Оператор 3D принтера'),

@@ -33,6 +33,9 @@ urlpatterns = [
     path('api/v1/detailimage/<int:pk>/', DetailImageAPIView.as_view()),# возможно ненужны
     path('api/v1/detail3dmodel/<int:pk>/', Detail3DAPIDetailView.as_view()),# возможно ненужны
 
+    #Авторизация пользователей
+    path('api/v1/auth/login/', UserLoginView.as_view(), name='user-login'),
+    path('api/v1/auth/logout/', UserLogoutView.as_view(), name='user-logout'),
 
 
     #Заказ
