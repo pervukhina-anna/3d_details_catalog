@@ -22,7 +22,8 @@ from users_lists.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     #Деталь
-    #Мы не думаем как информация выводится для того кто редактирует БД; Мы думаем как реализовать для пользователя сайта
+    #Мы не думаем как информация выводится для того кто редактирует БД;
+    # Мы думаем как реализовать для пользователя сайта
     path('api/v1/details/', DetailAPIView.as_view()),
 
     #Ненужны: 29-30
@@ -40,6 +41,7 @@ urlpatterns = [
 
     #Заказ
     path('api/v1/orders/', OrdersAPIView.as_view()),
+    #Вывод определенного заказа
     path('api/v1/order/<int:pk>/', OrdersAPIDetailView.as_view()),
 
 ]
