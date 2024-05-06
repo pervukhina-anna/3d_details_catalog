@@ -44,4 +44,9 @@ urlpatterns = [
     #Вывод определенного заказа
     path('api/v1/order/<int:pk>/', OrdersAPIDetailView.as_view()),
 
+
+    #Корзина
+    path('user-cart/', UserCartView.as_view(), name='user-cart'),
+    path('order-confirmation/', OrderConfirmationView.as_view(), name='order-confirmation'),
+
 ]
