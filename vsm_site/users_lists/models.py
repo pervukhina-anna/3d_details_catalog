@@ -1,5 +1,5 @@
-from django.core.validators import MinValueValidator
 from django.contrib.auth.models import AbstractUser
+from django.core.validators import MinValueValidator
 from django.db import models
 
 # Create your models here.
@@ -31,7 +31,7 @@ class Users(AbstractUser):
     # email и username - уникальные значения -> unique constraint
     email = models.EmailField('E-mail', unique=True)
     phone_number = models.CharField('Телефон', max_length=12, unique=True)
-    telegram_id = models.BigIntegerField('телеграмм_id', unique=True)
+    # telegram_id = models.BigIntegerField('телеграмм_id', unique=True)
     location = models.CharField('Локация', choices=CITY, max_length=100, default=0)
     role = models.CharField("Роль", choices=ROLE, max_length=120, default=0)
     password = models.CharField("Пароль", max_length=100)
@@ -41,8 +41,6 @@ class Users(AbstractUser):
         verbose_name='Пользователь'
         verbose_name_plural='Пользователи'
         ordering=['last_name']
-
-
 
 
 # Модель Деталей
@@ -123,3 +121,20 @@ class OrderDetail(models.Model):
     class Meta:
         verbose_name = 'Заказ-деталь'
         verbose_name_plural = 'Заказы-детали'
+
+
+#Модель корзины-пользователь
+class UserCart(models.Model):
+    user = models.ForeignKey(Users, on_delete=models.CASCADE)
+    detail = models.ForeignKey('Detail', on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField(default=1)
+    location = models.CharField(max_length=100, default='')
+
+#Модель заказ-
+class OrderConfirmation(models.Model):
+    user = models.ForeignKey(Users, on_delete=models.CASCADE)
+    detail = models.ManyToManyField('Detail', through='OrderDetail')
+    location = models.CharField(max_length=100)
+    contact_name = models.CharField(max_length=100)
+    email = models.EmailField()
+    phone_number = models.CharField(max_length=15, blank=True, null=True)

@@ -1,19 +1,28 @@
-from rest_framework import generics
+from django.contrib.auth import authenticate, login
 from django.shortcuts import render
+from rest_framework import generics, status
+from rest_framework.authtoken.models import Token
+from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.permissions import *
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
 from .models import *
 from .serializers import *
 
-from django.contrib.auth import authenticate, login
-from rest_framework import status
-from rest_framework.response import Response
-from rest_framework.views import APIView
-from rest_framework.authtoken.views import ObtainAuthToken
-from rest_framework.authtoken.models import Token
-
-
-
 # Create your views here.
+
+
+#КОРЗИНА
+class UserCartView(generics.ListCreateAPIView):
+    queryset = UserCart.objects.all()
+    serializer_class = UserCartSerializer
+    permission_classes = [IsAuthenticated & IsAdminUser]
+
+class OrderConfirmationView(generics.ListCreateAPIView):
+    queryset = OrderConfirmation.objects.all()
+    serializer_class = OrderConfirmationSerializer
+    permission_classes = [IsAuthenticated & IsAdminUser]
 
 
 ##ДЕТАЛИ
@@ -116,4 +125,3 @@ class OrdersAPIDetailView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = OrderSerializer
     # Подумать над собственным permissions
     permission_classes = (IsAuthenticatedOrReadOnly,)
-
