@@ -2,6 +2,18 @@ from rest_framework import serializers
 
 from .models import *
 
+#Сериализатор UserCart хранит информацию о деталях, добавленных в корзину пользователем.
+class UserCartSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserCart
+        fields = '__all__'
+
+#Сериализатор OrderConfirmation представляет информацию о подтвержденном заказе.
+class OrderConfirmationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = OrderConfirmation
+        fields = '__all__'
+
 
 #Сериализатор UserCart хранит информацию о деталях, добавленных в корзину пользователем.
 class UserCartSerializer(serializers.ModelSerializer):

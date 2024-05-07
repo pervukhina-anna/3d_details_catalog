@@ -4,6 +4,28 @@ from django.db import models
 
 # Create your models here.
 
+#Модель корзины-пользователь
+class UserCart(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    detail = models.ForeignKey('Detail', on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField(default=1)
+    location = models.CharField(max_length=100, default='')
+
+#Модель заказ-
+class OrderConfirmation(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    details = models.ManyToManyField('Detail', through='OrderDetail')
+    location = models.CharField(max_length=100)
+    contact_name = models.CharField(max_length=100)
+    email = models.EmailField()
+    phone_number = models.CharField(max_length=15, blank=True, null=True)
+
+#Заказ-деталь
+# class OrderDetail(models.Model):
+#     order = models.ForeignKey(OrderConfirmation, on_delete=models.CASCADE)
+#     detail = models.ForeignKey('Detail', on_delete=models.CASCADE)
+#     quantity = models.PositiveIntegerField(default=1)
+
 
 #модель пользователей
 class Users(AbstractUser):
