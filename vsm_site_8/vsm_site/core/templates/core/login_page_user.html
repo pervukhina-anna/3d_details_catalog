@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'core/css/bootstrap.css' %}">
+    <title>Вход для пользователя</title>
+
+</head>
+<body>
+<!--<h1>Вход для пользователя</h1>-->
+
+<!--<h2>username:</h2>-->
+<!--<div>-->
+<!--  <label class="col-form-label col-form-label-lg mt-4" for="inputLarge">username:</label>-->
+<!--  <input class="form-control form-control-lg" type="text" placeholder="введите почту" id="inputLarge">-->
+<!--</div>-->
+
+<!--<h2>password:</h2>-->
+<!--<div>-->
+<!--      <label for="exampleInputPassword1" class="form-label mt-4">Password</label>-->
+<!--      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" autocomplete="off">-->
+<!--    </div>-->
+<!--<button type="button" class="btn btn-primary">Войти</button>-->
+<!--<button type="button" class="btn btn-success">Вход Оператора 3D-печати</button>-->
+
+
+<!--ВТОРАЯ ВЕРСИЯ-->
+<center>
+    <div style="margin-top:10%">
+        <h1>Вход для пользователя</h1>
+<form>
+  <fieldset>
+
+    <div style="width:450px">
+      <label for="exampleInputEmail1" class="form-label mt-4">Email</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Введите свой email">
+      <small id="emailHelp" class="form-text text-muted">Введите свой email</small>
+    </div>
+    <div style="width:450px">
+      <label for="exampleInputPassword1" class="form-label mt-4">Пароль</label>
+      <input type="password"  class="form-control" id="exampleInputPassword1" placeholder="Введите свой пароль" autocomplete="off">
+    </div>
+
+    </fieldset>
+
+</form>
+<div style="margin-top: 30px">
+
+  <a class="btn btn-success" href="{% url 'login_operator' %}">Войти Оператору 3D-печати</a>
+    <a class="btn btn-primary" href="{% url 'main_page_user' %}">Войти </a>
+    </div>
+</center>
+
+</div>
+
+
+
+
+</body>
+</html>

@@ -14,15 +14,15 @@ from .serializers import *
 
 
 #КОРЗИНА
-class UserCartView(generics.ListCreateAPIView):
-    queryset = UserCart.objects.all()
-    serializer_class = UserCartSerializer
-    permission_classes = [IsAuthenticated & IsAdminUser]
-
-class OrderConfirmationView(generics.ListCreateAPIView):
-    queryset = OrderConfirmation.objects.all()
-    serializer_class = OrderConfirmationSerializer
-    permission_classes = [IsAuthenticated & IsAdminUser]
+# class UserCartView(generics.ListCreateAPIView):
+#     queryset = UserCart.objects.all()
+#     serializer_class = UserCartSerializer
+#     permission_classes = [IsAuthenticated & IsAdminUser]
+#
+# class OrderConfirmationView(generics.ListCreateAPIView):
+#     queryset = OrderConfirmation.objects.all()
+#     serializer_class = OrderConfirmationSerializer
+#     permission_classes = [IsAuthenticated & IsAdminUser]
 
 
 ##ДЕТАЛИ
@@ -93,9 +93,9 @@ class UserLoginView(ObtainAuthToken):
             if created:
                 token.delete()  # Delete the token if it was already created
                 token = Token.objects.create(user=user)
-            return Response({'token': token.key, 'username': user.username, 'role': user.role})
+            return Response({'token': token.key, 'phone_number': user.username, 'role': user.role})
         else:
-            return Response({'message': 'Invalid username or password'}, status=status.HTTP_401_UNAUTHORIZED)
+            return Response({'message': 'Invalid email or password'}, status=status.HTTP_401_UNAUTHORIZED)
 
 class UserLogoutView(APIView):
     permission_classes = [IsAuthenticated]

@@ -1,0 +1,24 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+
+{% block title %}Страница оператора 3D печати{% endblock %}
+
+
+{% block overPage %}
+  {% include 'core/overpage_operator.html' %}
+{% endblock %}
+
+{% block name_page %}
+  <center>
+      <h2>Таблица заказов</h2>
+  </center>
+{% endblock %}
+
+{% block content %}
+    {% include 'core/tabel_orders.html' %}
+{% endblock %}
+
+
+
+

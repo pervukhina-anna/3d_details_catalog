@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<div style="
+            margin-top:1%; margin-bottom:1%; margin-left:7%;margin-right:10%;
+            ">
+
+
+</div>
+<div style="
+            margin-top:1%; margin-bottom:1%; margin-left:7%;margin-right:10%;display: flex; justify-content: flex-start;
+            ">
+<p style="margin-top:1%; margin-bottom:1%; margin-left:0.5%;margin-right:0.5%;">Фильтрация по статусам:</p>
+    <a class="btn btn-dark" style="margin-top:0.5%; margin-bottom:0.5%; margin-left:0.5%;margin-right:0.5%;" href="{% url 'operator_page' %}" >Все заказы</a>
+<a class="btn btn-danger" style="margin-top:0.5%; margin-bottom:0.5%; margin-left:0.5%;margin-right:0.5%;" href="{% url 'order_processing' %}" >Заказ в обработке</a>
+<a  class="btn btn-warning" style="margin-top:0.5%; margin-bottom:0.5%; margin-left:0.5%;margin-right:0.5%;" href="{% url 'order_in_progress' %}" >Заказ выполняется</a>
+<a  class="btn btn-success" style="margin-top:0.5%; margin-bottom:0.5%; margin-left:0.5%;margin-right:0.5%;" href="{% url 'order_ready' %}" >Заказ готов</a>
+</div>
+
+<!--<div style="-->
+<!--            margin-top:1%; margin-bottom:1%; margin-left:7%;margin-right:10%;display: flex; justify-content: flex-start;-->
+<!--            ">-->
+<!--    <div style="max-width:200px;margin-top:0.5%; margin-bottom:0.5%; margin-left:0.5%;margin-right:0.5%;">-->
+<!--        <label for="exampleSelect1" class="form-label mt-4" >по статусу заказа</label>-->
+<!--          <select class="form-select" id="exampleSelect1">-->
+<!--            <option>ничего</option>-->
+<!--            <option>Заказ в обработке</option>-->
+<!--            <option>Заказ выполняется</option>-->
+<!--            <option>Заказ готов</option>-->
+<!--          </select>-->
+<!--        </div>-->
+
+<!--    <div style="max-width:200px;margin-top:0.5%; margin-bottom:0.5%; margin-left:0.5%;margin-right:0.5%;">-->
+<!--        <label for="exampleSelect1" class="form-label mt-4" >по локациям</label>-->
+<!--          <select class="form-select" id="exampleSelect1">-->
+<!--            <option>ничего</option>-->
+<!--            <option>2</option>-->
+<!--            <option>3</option>-->
+<!--            <option>4</option>-->
+<!--            <option>5</option>-->
+<!--          </select>-->
+<!--        </div>-->
+<!--</div>-->
+
+<div style="margin-left:7%;margin-right:10%; display: flex; justify-content: flex-start;">
+    <div style='max-width:500px; margin-top:0.5%; margin-bottom:0.5%; margin-left:0.5%;margin-right:0.5%;'>
+
+        <form class="d-flex" action="#" method="get">
+            <input class="form-control mr-sm-2" type="search" placeholder="Введите login:" aria-label="Search" name="query" value="{{ query }}">
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Поиск</button>
+        </form>
+
+    </div>
+</div>
+
+
+</body>
+</html>

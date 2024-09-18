@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'core/css/bootstrap.css' %}">
+    <title>результат поиска по пользователям</title>
+</head>
+<body>
+{% include 'core/overpage_user.html' %}
+
+  <center>
+      <h2 style="margin-top:1%; margin-bottom:1%; margin-left:1%;margin-right:1%;">Таблица заказов</h2>
+  </center>
+{% include 'core/buttons_for_orders.html' %}
+{% include 'core/tabel_orders_user.html' %}
+
+
+</body>
+</html>

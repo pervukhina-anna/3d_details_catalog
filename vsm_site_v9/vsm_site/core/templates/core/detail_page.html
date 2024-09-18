@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="vsm_icon.jpg" type="vsm_icon.jpg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'core/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/page_tovara.css' %}">
+    <title>Страница детали {{ detail.name }}</title>
+</head>
+<body>
+{% include 'core/overpage_user.html' %}
+
+
+<center>
+<h1>{{ detail.title }}</h1>
+</center>
+
+<main>
+    <div class="product-details">
+      <div class="product-images">
+<!-- 1.png замени на подхват изображений (их всегда 4 здесь прописано)
+                ГРАНИЦЫ ГДЕ ЗАМЕНЯТЬ ВЫДЕЛЕНЫ восклицательными знаками !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+        <div class="thumbnail" onclick="showImage('{{ detail.image_1.url }}')">
+          <img src="{{ detail.image_1.url }}" alt="Thumbnail 1">
+        </div>
+        <div class="thumbnail" onclick="showImage('{{ detail.image_2.url }}')">
+          <img src="{{ detail.image_2.url }}" alt="Thumbnail 2">
+        </div>
+        <div class="thumbnail" onclick="showImage('{{ detail.image_3.url }}')">
+          <img src="{{ detail.image_3.url }}" alt="Thumbnail 3">
+        </div>
+        <div class="thumbnail" onclick="showImage('{{ detail.image_4.url }}')">
+          <img src="{{ detail.image_4.url }}" alt="Thumbnail 4">
+        </div>
+      </div>
+      <div class="selected-image">
+        <img src="{{ detail.image_1.url }}" alt="Selected Image">
+      </div>
+<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+      <div class="product-info">
+        <h1>Наименование товара</h1>
+        <p>{{ detail.name }}</p>
+        <div class="details">
+          <h2>a2v-номер:</h2>
+          {{ detail.a2v_id }}
+        </div>
+        <div class="characteristics">
+          <h2>Характеристика:</h2>
+          <p style="text-wrap: balance;">{{ detail.description }}</p>
+        </div>
+
+<!--ФОРМА ДЛЯ ДОБАВЛЕНИЯ ЗАКАЗА-->
+<!--        <div class="quantity">-->
+<!--          <label for="quantity">Количество:</label>-->
+<!--          <input type="number" id="quantity" value="1">-->
+<!--        </div>-->
+<!--          <a class="btn btn-warning" style="width:100%" href="{% url 'add_to_cart' detail.id %}">Добавить в корзину</a>-->
+        <form class="quantity" action="{% url 'add_to_cart' detail.id %}" method="get">
+            <input class="form-control mr-sm-2" type="number" min="0" placeholder="количество" aria-label="Search" name="query" value="{{ query }}"><br>
+            <button  class="btn btn-secondary" style="width:400px" type="submit">добавить в корзину</button>
+        </form>
+
+          <a href="{% url 'main_page_user' %}" class="btn btn-warning" style="margin-top:5%">вернуться</a>
+    </div>
+  </div>
+    <div class="notification" id="notification">
+      Товар добавлен в корзину
+    </div>
+  </div>
+</main>
+
+
+
+  <script src="{% static 'core/js/page_tovara.js' %}"></script>
+
+</body>
+</html>

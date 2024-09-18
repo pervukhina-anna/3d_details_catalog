@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'core/css/bootstrap.css' %}">
+
+</head>
+<body>
+<hr>
+
+<h2 style="margin-top:2%; margin-left:5%; margin-right:5%; margin-bottom:2%">{{ title_1 }}</h2>
+
+<hr>
+<table class="table table-hover" >
+  <thead>
+    <tr class="table-dark">
+      <th scope="col">#</th>
+      <th scope="col">id заказа</th>
+<!--      <th scope="col">a2v-номер детали</th>-->
+      <th scope="col">Название детали</th>
+      <th scope="col">количество</th>
+      <th scope="col">Пользователь</th>
+<!--      <th scope="col">Локация</th>-->
+      <th scope="col" style="width:150px">Статус</th>
+      <th scope="col">Дата оформления заказа</th>
+      <th scope="col">Изменить статус заказа</th>
+
+
+    </tr>
+  </thead>
+<!-- здесь поставить цикл-->
+  <tbody>
+    {% for el in orders_list %}
+    <tr class="table-secondary">
+      <th scope="row">Заказ</th>
+      <td>{{el.id}}</td>
+<!--      <td>{{el.a2v_id}}</td>-->
+      <td>{{el.detail_name}}</td>
+      <td>{{el.counted}}</td>
+      <td>{{el.user.email}}</td>
+<!--      <td>{{el.location}}</td>-->
+      <td>{{el.status}}</td>
+      <td>{{el.added_date}}</td>
+      <td>
+        <a  class="btn btn-warning" href="{% url 'change_order_in_progress' el.id %}">в процессе</a>
+        <a  class="btn btn-success" href="{% url 'change_order_ready' el.id %}">готов</a>
+
+      </td>
+    </tr>
+    {% empty %}
+        <h3 style="margin-top:0.5%; margin-left:5%; margin-right:5%; margin-bottom:0.5%">Заказов нет.</h3>
+        <hr>
+  {% endfor %}
+  </tbody>
+</table>
+
+</body>
+</html>

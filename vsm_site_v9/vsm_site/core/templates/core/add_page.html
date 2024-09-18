@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cтраница добавления детали</title>
+</head>
+<body>
+
+{% include 'core/overpage_user.html' %}
+
+<h2 style="margin-top:2%; margin-left:5%; margin-right:5%; margin-bottom:2%">Добавление детали</h2>
+
+<div style="margin-top:3%; margin-left:5%; margin-right:5%; width:40%">
+<form action="{% url 'add_page_2' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <p><button type="submit" class="btn btn-warning">Отправить</button></p>
+</form>
+    </div>
+</body>
+</html>

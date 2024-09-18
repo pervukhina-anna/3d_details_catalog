@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'core/css/bootstrap.css' %}">
+
+    <title>Главная страница</title>
+</head>
+<body>
+{% include 'core/overpage_user.html' %}
+
+{% include 'core/buttons_for_detail.html' %}
+
+{% include 'core/index.html' %}
+
+</body>
+</html>

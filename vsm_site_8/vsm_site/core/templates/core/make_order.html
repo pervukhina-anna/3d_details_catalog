@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'core/css/bootstrap.css' %}">
+    <title>Проверка формы отправки заказа</title>
+</head>
+<body>
+
+<!--<form method="post">-->
+<!--    {% csrf_token %}-->
+<!--    {{ form.as_p }}-->
+<!--    <input type="text"><br>-->
+<!--    <button type="submit">Отправить Заказ</button>-->
+<!--</form>-->
+
+<form method="post">
+  <fieldset>
+    {% csrf_token %}
+    {{ form.as_p }}
+<!--    {{ form.a2v_id }}<br>-->
+<!--    {{ form.detail_name }}<br>-->
+<!--    {{ form.counted }}<br>-->
+<!--    {{ form.user }}<br>-->
+<!--    {{ form.location }}<br>-->
+<!--    {{ form.status }}<br>-->
+<!--    {{ form.added_date }}<br>-->
+
+    <div>
+      <label for="exampleInputEmail1" class="form-label mt-4">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+
+    </div>
+      <div>
+      <label for="exampleInputEmail1" class="form-label mt-4">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+
+    </div>
+      <div>
+      <label for="exampleInputEmail1" class="form-label mt-4">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+
+    </div>
+      <div>
+      <label for="exampleInputEmail1" class="form-label mt-4">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+
+    </div>
+
+
+    <div>
+      <label for="exampleTextarea" class="form-label mt-4">Example textarea</label>
+      <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+    </div>
+
+
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </fieldset>
+</form>
+
+
+</body>
+</html>
